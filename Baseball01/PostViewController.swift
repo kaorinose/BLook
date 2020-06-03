@@ -9,6 +9,12 @@
 import UIKit
 
 class PostViewController: UIViewController {
+    
+    // 戻るボタンをタップしたときに呼ばれるメソッド
+    @IBAction func returnButton(_ sender: Any) {
+        // ホーム画面に戻る
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,15 +21,16 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     // タブバーのアイコンがタップされた時に呼ばれるdelegateメソッドを処理する。
-    //func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        //if viewController is ImageSelectViewController {
-            // ImageSelectViewControllerは、タブ切り替えではなくモーダル画面遷移する
-            //let imageSelectViewController = storyboard!.instantiateViewController(withIdentifier: "ImageSelect")
-            //present(imageSelectViewController, animated: true)
-            //return false
-        //} else {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController is PostViewController {
+            // PostViewControllerは、タブ切り替えではなくモーダル画面遷移する
+            let PostViewController = storyboard!.instantiateViewController(withIdentifier: "Post")
+            present(PostViewController, animated: true)
+            return false
+        } else {
             // その他のViewControllerは通常のタブ切り替えを実施
-            //return true
-        //}
+            return true
+        }
+    }
 
 }

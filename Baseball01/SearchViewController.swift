@@ -9,6 +9,12 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    // 戻るボタンをタップしたときに呼ばれるメソッド
+    @IBAction func cancelButton(_ sender: Any) {
+        // ホーム画面に戻る
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
