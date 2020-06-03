@@ -140,7 +140,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
 
         labelTitle.text = "観戦履歴"
-        labelTitle.backgroundColor  = UIColor(red: 0.97, green: 0.90, blue: 0.90, alpha: 1)
+        labelTitle.backgroundColor  = UIColor(red: 0.40, green: 0.90, blue: 0.97, alpha: 1)
         view.addSubview(labelTitle)
 
         //予定がある場合、スケジュールをDBから取得・表示する。

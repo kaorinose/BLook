@@ -7,26 +7,30 @@
 //
 
 import UIKit
+//MapKitのインポート
+import MapKit
+
 
 class InformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //MapViewを生成し、表示する
+        let myMapView = MKMapView()
+        myMapView.frame = self.view.frame
+        self.view.addSubview(myMapView)
+        
+        //長押しを探知する機能を追加
+        //ジェスチャーの生成
+        let longPressGesture = UILongPressGestureRecognizer()
+        //ボタンを押したときの処理
+        longPressGesture.addTarget(self, action: "longPressed:")
+        myMapView.addGestureRecognizer(longPressGesture)
+        
         // 背景に表示したい画像の名前(拡張子含む)を引数とする。
-        self.view.addBackground(name: "ground.jpg")
+        //self.view.addBackground(name: "ground.jpg")
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
