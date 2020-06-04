@@ -43,38 +43,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="　日付（検索）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHJ-Py-dPb">
-                                <rect key="frame" x="32" y="80" width="310" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.81502028349163658" green="0.96620899439999997" blue="0.91443644183315664" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSr-fG-wEV">
-                                <rect key="frame" x="32" y="123" width="310" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="　同伴者（検索）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PO3-ZI-pjH">
-                                <rect key="frame" x="32" y="165" width="310" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.8150202835" green="0.96620899439999997" blue="0.91443644180000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VjI-Fs-Nzc">
-                                <rect key="frame" x="32" y="208" width="310" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyB-AE-IIB">
-                                <rect key="frame" x="32" y="621" width="45" height="49"/>
+                                <rect key="frame" x="32" y="34" width="45" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <state key="normal" image="multiply" catalog="system"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="5z5-Oq-8js" eventType="touchUpInside" id="Zi5-6f-IRi"/>
                                 </connections>
@@ -143,10 +115,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNN-xM-WzH">
-                                <rect key="frame" x="32" y="675" width="50" height="49"/>
+                                <rect key="frame" x="32" y="36" width="50" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <state key="normal" image="multiply" catalog="system"/>
                                 <connections>
                                     <action selector="returnButton:" destination="jDv-1M-I99" eventType="touchUpInside" id="z70-Fi-WNB"/>
                                 </connections>
@@ -224,14 +196,23 @@
                     <view key="view" contentMode="scaleToFill" id="3xS-fD-Enc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eXU-5m-Wy2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iZY-02-5Gq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="info" id="mqz-Cl-Pi0"/>
+                    <connections>
+                        <outlet property="mapView" destination="eXU-5m-Wy2" id="IUc-QM-Wki"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryF-UK-wIV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976" y="804"/>
+            <point key="canvasLocation" x="975.20000000000005" y="803.94088669950747"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="dlr-Fd-WY9">
@@ -273,9 +254,9 @@
     </scenes>
     <resources>
         <image name="add" width="72" height="72"/>
-        <image name="arrowshape.turn.up.left.fill" catalog="system" width="64" height="52"/>
         <image name="calendar" width="60" height="60"/>
         <image name="info" width="72" height="72"/>
+        <image name="multiply" catalog="system" width="64" height="54"/>
         <image name="search" width="72" height="72"/>
         <image name="settings" width="60" height="60"/>
     </resources>
