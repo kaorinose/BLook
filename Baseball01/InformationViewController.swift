@@ -51,8 +51,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         //myMapView.addGestureRecognizer(longPressGesture)
         //---------------------- 長押しを探知する機能を追加 ----------------------------
         
-        // 背景に表示したい画像の名前(拡張子含む)を引数とする。
-        //self.view.addBackground(name: "ground.jpg")
     }
         
     // CLLocationManagerのdelegate：現在位置取得
@@ -91,4 +89,9 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     }
     // --------------------- 現在位置を中心にする処理関連 --------------------------
 
+    @objc func dismissKeyboard(){
+        // キーボードを閉じる
+        view.endEditing(true)
+    }
+    
 }

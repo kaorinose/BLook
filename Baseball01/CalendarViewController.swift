@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     //「観戦履歴」の表示
     let labelTitle = UILabel(frame: CGRect(x: 0, y: 530, width: 180, height: 50))
     //カレンダー部分
-    let dateView = FSCalendar(frame: CGRect(x: 0, y: 30, width: w, height: 400))
+    let dateView = FSCalendar(frame: CGRect(x: 20, y: 50, width: w - 30, height: 400))
     //日付の表示
     let Date = UILabel(frame: CGRect(x: 5, y: 430, width: 200, height: 100))
     
@@ -66,10 +66,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         addBtn.layer.cornerRadius = 30.0
         addBtn.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
         view.addSubview(addBtn)
-        
-        // 背景に表示したい画像の名前(拡張子含む)を引数とする。
-        //self.view.addBackground(name: "ground.jpg")
-
         
     }
     
