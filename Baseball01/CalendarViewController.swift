@@ -56,16 +56,18 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         labelDate.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(labelDate)
 
+        //  ----------------------- 要らないかも -------------------------------
         //スケジュール追加ボタン
-        let addBtn = UIButton(frame: CGRect(x: w - 70, y: h - 70, width: 60, height: 60))
+        //let addBtn = UIButton(frame: CGRect(x: w - 70, y: h - 70, width: 60, height: 60))
         // ------------------　エラー発生中　-----------------------------------
         //addBtn.setTitle("+", for: UIControlState())
         //addBtn.setTitleColor(.white, for: UIControlState())
         // ------------------　エラー発生中　-----------------------------------
-        addBtn.backgroundColor = .orange
-        addBtn.layer.cornerRadius = 30.0
-        addBtn.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
-        view.addSubview(addBtn)
+        //addBtn.backgroundColor = .orange
+        //addBtn.layer.cornerRadius = 30.0
+        //addBtn.addTarget(self, action: #selector(onClick(_:)), for: .touchUpInside)
+        //view.addSubview(addBtn)
+        //  ----------------------- 要らないかも -------------------------------
         
     }
     
@@ -125,12 +127,14 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         return nil
     }
     
+    //  ----------------------- 要らないかも -------------------------------
     //画面遷移(観戦履歴登録ページ)
-    @objc func onClick(_: UIButton) {
-        let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
-        let PostViewController = storyboard.instantiateViewController(withIdentifier: "Post")
-        present(PostViewController, animated: true, completion: nil)
-    }
+    //@objc func onClick(_: UIButton) {
+        //let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
+        //let PostViewController = storyboard.instantiateViewController(withIdentifier: "Post")
+        //present(PostViewController, animated: true, completion: nil)
+    //}
+    //  ----------------------- 要らないかも -------------------------------
 
     //カレンダー処理(スケジュール表示処理)
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){

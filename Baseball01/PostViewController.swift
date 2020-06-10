@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PostViewController: UIViewController {
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var placeTextField: UITextField!
+    @IBOutlet weak var companionTextField: UITextField!
+    @IBOutlet weak var seatTextField: UITextField!
+    @IBOutlet weak var winTeamTextField: UITextField!
+    @IBOutlet weak var winCountTextField: UITextField!
+    @IBOutlet weak var loseTeamTextField: UITextField!
+    @IBOutlet weak var loseCountTextField: UITextField!
     
     // 戻るボタンをタップしたときに呼ばれるメソッド
     @IBAction func returnButton(_ sender: Any) {

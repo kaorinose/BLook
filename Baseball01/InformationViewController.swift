@@ -17,6 +17,9 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     // CLLocationManagerのメンバ変数を定義する
     @IBOutlet var mapView: MKMapView!
     var locManager: CLLocationManager!
+    //---------------------- 長押しを探知する機能を追加 ----------------------------
+    let myMapView = MKMapView()
+    //---------------------- 長押しを探知する機能を追加 ----------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +48,10 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         
         //---------------------- 長押しを探知する機能を追加 ----------------------------
         //ジェスチャーの生成
-        //let longPressGesture = UILongPressGestureRecognizer()
+        let longPressGesture = UILongPressGestureRecognizer()
         //ボタンを押したときの処理
-        //longPressGesture.addTarget(self, action: "longPressed:")
-        //myMapView.addGestureRecognizer(longPressGesture)
+        longPressGesture.addTarget(self, action: "longPressed:")
+        myMapView.addGestureRecognizer(longPressGesture)
         //---------------------- 長押しを探知する機能を追加 ----------------------------
         
     }
@@ -89,6 +92,33 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     }
     // --------------------- 現在位置を中心にする処理関連 --------------------------
 
+    //---------------------- 長押しを探知する機能を追加 ----------------------------
+    // 長押しした時にピンを置く処理
+    func longPressed(sender: UILongPressGestureRecognizer) {
+        
+        // この処理を書くことにより、指を離したときだけ反応するようにする
+        //if sender.state != UIGestureRecognizerState.Began {
+            //return
+        //}
+
+        // senderから長押しした地図上の座標を取得
+        //let tappedLocation = sender.locationInView(myMapView)
+        //let tappedPoint = myMapView.convertPoint(tappedLocation, toCoordinateFromView: myMapView)
+
+        // ピンの生成
+        let pin = MKPointAnnotation()
+        // ピンを置く場所を指定
+        //pin.coordinate = tappedPoint
+        // ピンのタイトルを設定
+        pin.title = "タイトル"
+        // ピンのサブタイトルの設定
+        pin.subtitle = "サブタイトル"
+        // ピンをMapViewの上に置く
+        self.myMapView.addAnnotation(pin)
+
+    }
+    //---------------------- 長押しを探知する機能を追加 ----------------------------
+    
     @objc func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)
