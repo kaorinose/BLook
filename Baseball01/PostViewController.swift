@@ -20,6 +20,9 @@ class PostViewController: UIViewController {
     @IBOutlet weak var loseTeamTextField: UITextField!
     @IBOutlet weak var loseCountTextField: UITextField!
     
+    let realm = try! Realm()
+    var event: Event!
+    
     // 戻るボタンをタップしたときに呼ばれるメソッド
     @IBAction func returnButton(_ sender: Any) {
         // ホーム画面に戻る
@@ -29,18 +32,39 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+
+        datePicker.date = event.date
+        placeTextField.text = event.place
+        companionTextField.text = event.companion
+        seatTextField.text = event.seat
+        winTeamTextField.text = event.winTeam
+        winCountTextField.text = event.winCount
+        loseTeamTextField.text = event.loseTeam
+        loseCountTextField.text = event.loseCount
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        try! realm.write {
+            self.event.date = self.datePicker.date
+            self.event.place = self.placeTextField.text!
+            self.event.companion = self.companionTextField.text!
+            self.event.seat = self.seatTextField.text!
+            self.event.winTeam = self.winTeamTextField.text!
+            self.event.winCount = self.winCountTextField.text!
+            self.event.loseTeam = self.loseTeamTextField.text!
+            self.event.loseCount = self.loseCountTextField.text!
+            self.realm.add(self.event, update: .modified)
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.viewWillDisappear(animated)
     }
-    */
-
+    
+    @objc func dismissKeyboard(){
+        // キーボードを閉じる
+        view.endEditing(true)
+    }
+    
 }
