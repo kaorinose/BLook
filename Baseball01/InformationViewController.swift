@@ -254,8 +254,15 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         osakaPin.subtitle = "(パ・リーグ)"
         // MapViewにピンを追加.
         mapView.addAnnotation(osakaPin)
-        
         // ----------------------- 所在地にピン設定 ----------------------------------
+        
+        // ---------------------- ピンタップを探知する機能を追加 ------------------------
+        // ジェスチャーの生成
+        let TapGesture = UITapGestureRecognizer()
+        //ボタンを押したときの処理
+        TapGesture.addTarget(self, action:#selector(TapPin))
+        mapView.addGestureRecognizer(TapGesture)
+        // ---------------------- ピンタップを探知する機能を追加 ------------------------
         
         // --------------------- 現在位置を中心にする処理関連 --------------------------
         // 地図の初期化
@@ -272,6 +279,16 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         
     }
         
+    // ------------------------- ピンタップ時の機能を追加 -----------------------------
+    // ピンをタップした時の処理
+    @objc func TapPin(sender: UITapGestureRecognizer) {
+        let url = URL(string: "https://www.softbankhawks.co.jp/")!
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    // ------------------------- ピンタップ時の機能を追加 -----------------------------
+    
     // CLLocationManagerのdelegate：現在位置取得
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
         let lonStr = (locations.last?.coordinate.longitude.description)!
