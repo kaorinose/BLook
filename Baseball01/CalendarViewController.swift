@@ -79,19 +79,19 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     }()
     
     // 祝日判定を行い結果を返すメソッド
-       func judgeHoliday(_ date : Date) -> Bool {
-           //祝日判定用のカレンダークラスのインスタンス
-           let tmpCalendar = Calendar(identifier: .gregorian)
+    func judgeHoliday(_ date : Date) -> Bool {
+        //祝日判定用のカレンダークラスのインスタンス
+        let tmpCalendar = Calendar(identifier: .gregorian)
 
-           // 祝日判定を行う日にちの年、月、日を取得
-           let year = tmpCalendar.component(.year, from: date)
-           let month = tmpCalendar.component(.month, from: date)
-           let day = tmpCalendar.component(.day, from: date)
+        // 祝日判定を行う日にちの年、月、日を取得
+        let year = tmpCalendar.component(.year, from: date)
+        let month = tmpCalendar.component(.month, from: date)
+        let day = tmpCalendar.component(.day, from: date)
 
-           let holiday = CalculateCalendarLogic()
+        let holiday = CalculateCalendarLogic()
 
-           return holiday.judgeJapaneseHoliday(year: year, month: month, day: day)
-       }
+        return holiday.judgeJapaneseHoliday(year: year, month: month, day: day)
+    }
     
     // date型 -> 年月日をIntで取得
     func getDay(_ date:Date) -> (Int,Int,Int){
@@ -169,7 +169,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         print(result)
         for ev in result {
             if ev.date == da {
-                labelDate.text = ev.event
+                //日付に合致する「Event.swift」で定義しているplaceを持ってくる
+                labelDate.text = ev.place
                 labelDate.textColor = .black
                 view.addSubview(labelDate)
             }

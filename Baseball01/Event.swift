@@ -15,6 +15,7 @@ class Event: Object {
     @objc dynamic var id = 0
     
     // 日付
+    //@objc dynamic var date = Date()
     @objc dynamic var date: String = ""
     // 場所
     @objc dynamic var place: String = ""
@@ -31,8 +32,10 @@ class Event: Object {
     // 敗北点数
     @objc dynamic var loseCount: String = ""
     
+    // --------------------------------- 使用しなくなる予定 ----------------------------------
     // イベント
     //@objc dynamic var event: String = ""
+    // --------------------------------- 使用しなくなる予定 ----------------------------------
     
     // id をプライマリーキーとして設定
     override static func primaryKey() -> String? {

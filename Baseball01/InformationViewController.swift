@@ -37,7 +37,46 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
                 break
             }
         }
-            
+        
+        // ----------------------- 所在地にピン設定 ----------------------------------
+        // 福岡ソフトバンクホークス（福岡）
+        // 緯度
+        let fukuokaLatitude: CLLocationDegrees = 33.60639
+        // 経度
+        let fukuokaLongitude: CLLocationDegrees = 130.41806
+        // 中心点
+        let fukuokaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(fukuokaLatitude, fukuokaLongitude)
+        // ピンを生成
+        let fukuokaPin: MKPointAnnotation = MKPointAnnotation()
+        // 座標を設定
+        fukuokaPin.coordinate = fukuokaCenter
+        // タイトルを設定
+        fukuokaPin.title = "福岡ソフトバンクホークス"
+        // サブタイトルを設定
+        fukuokaPin.subtitle = "(パ・リーグ)"
+        // MapViewにピンを追加.
+        mapView.addAnnotation(fukuokaPin)
+        
+        // 読売ジャイアンツ（東京）
+        // 緯度
+        let tokyoLatitude: CLLocationDegrees = 35.68944
+        // 経度
+        let tokyoLongitude: CLLocationDegrees = 139.69167
+        // 中心点
+        let tokyoCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(tokyoLatitude, tokyoLongitude)
+        // ピンを生成
+        let tokyoPin: MKPointAnnotation = MKPointAnnotation()
+        // 座標を設定
+        tokyoPin.coordinate = tokyoCenter
+        // タイトルを設定
+        tokyoPin.title = "読売ジャイアンツ"
+        // サブタイトルを設定
+        tokyoPin.subtitle = "(セ・リーグ)"
+        // MapViewにピンを追加.
+        mapView.addAnnotation(tokyoPin)
+        
+        // ----------------------- 所在地にピン設定 ----------------------------------
+        
         // --------------------- 現在位置を中心にする処理関連 --------------------------
         // 地図の初期化
         //initMap()
@@ -115,10 +154,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     //---------------------- 長押しを探知する機能を追加 ----------------------------
-    
-    @objc func dismissKeyboard(){
-        // キーボードを閉じる
-        view.endEditing(true)
-    }
+
     
 }

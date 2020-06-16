@@ -48,8 +48,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
 
-        let dateString:String = formatter.string(from: event.date)
-        cell.detailTextLabel?.text = dateString
+        // --------------------- 日付型式エラー中 --------------------------------
+        //let dateString:String = formatter.string(from: event.date)
+        //cell.detailTextLabel?.text = dateString
+        // --------------------- 日付型式エラー中 --------------------------------
         
         return cell
     }
@@ -77,7 +79,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // segue で画面遷移する時に呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        let postViewControllerPostViewController = segue.destination as! PostViewController
+        let postViewController = segue.destination as! PostViewController
 
         if segue.identifier == "cellSegue" {
             let indexPath = self.tableView.indexPathForSelectedRow
