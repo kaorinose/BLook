@@ -38,7 +38,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-        // ----------------------- 所在地にピン設定 ----------------------------------
+        // -- ↓ --------------------- 所在地にピン設定 -------------------------------
         // 福岡ソフトバンクホークス（福岡）
         // 緯度
         let fukuokaLatitude: CLLocationDegrees = 33.595211
@@ -254,36 +254,37 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         osakaPin.subtitle = "(パ・リーグ)"
         // MapViewにピンを追加.
         mapView.addAnnotation(osakaPin)
-        // ----------------------- 所在地にピン設定 ----------------------------------
+        // -- ↑ --------------------- 所在地にピン設定 -------------------------------
         
-        // ---------------------- ピンタップを探知する機能を追加 ------------------------
+        // -- ↓ -------------------- ピンタップを探知する機能を追加 ---------------------
         // ジェスチャーの生成
         let TapGesture = UITapGestureRecognizer()
         //ボタンを押したときの処理
         TapGesture.addTarget(self, action:#selector(TapPin))
         mapView.addGestureRecognizer(TapGesture)
-        // ---------------------- ピンタップを探知する機能を追加 ------------------------
+        // -- ↑ -------------------- ピンタップを探知する機能を追加 ---------------------
         
-        // --------------------- 現在位置を中心にする処理関連 --------------------------
+        // -- ↓ ----------------- 現在位置を中心にする処理関連 -------------------------
         // 地図の初期化
         //initMap()
-        // --------------------- 現在位置を中心にする処理関連 --------------------------
+        // -- ↑ ----------------- 現在位置を中心にする処理関連 -------------------------
         
-        //---------------------- 長押しを探知する機能を追加 ----------------------------
+        // -- ↓ ------------------ 長押しを探知する機能を追加 --------------------------
         //ジェスチャーの生成
         let longPressGesture = UILongPressGestureRecognizer()
         //ボタンを押したときの処理
         longPressGesture.addTarget(self, action:#selector(longPressed))
         mapView.addGestureRecognizer(longPressGesture)
-        //---------------------- 長押しを探知する機能を追加 ----------------------------
+        // -- ↑ -------------------- 長押しを探知する機能を追加 ------------------------
         
     }
         
-    // ------------------------- ピンタップ時の機能を追加 -----------------------------
+    // -- ↓ --------------------- ピンタップ時の機能を追加 ----------------------------
     // ピンをタップした時の処理
     @objc func TapPin(sender: UITapGestureRecognizer) {
         // どのピンがタップされたか取得
-        // ピンに対応するURLを開く
+        //let title = view.annotation?.title
+
         let fukuokaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
         let tokyoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
         let yokohamaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
@@ -297,11 +298,12 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let hokkaidoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
         let osakaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
         
+        // ピンに対応するURLを開く
         if UIApplication.shared.canOpenURL(fukuokaUrl) {
-            UIApplication.shared.open(fukuokaUrl)
+                UIApplication.shared.open(fukuokaUrl)
         }
     }
-    // ------------------------- ピンタップ時の機能を追加 -----------------------------
+    // -- ↑ --------------------- ピンタップ時の機能を追加 ----------------------------
     
     // CLLocationManagerのdelegate：現在位置取得
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
@@ -311,12 +313,12 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         print("lon : " + lonStr)
         print("lat : " + latStr)
             
-        // --------------------- 現在位置を中心にする処理関連 --------------------------
+        // -- ↓ ---------------- 現在位置を中心にする処理関連 ------------------------
         //mapView.userTrackingMode = .follow
-        // --------------------- 現在位置を中心にする処理関連 --------------------------
+        // -- ↑ ---------------- 現在位置を中心にする処理関連 ------------------------
     }
         
-    // --------------------- 現在位置を中心にする処理関連 --------------------------
+    // -- ↓ ------------------ 現在位置を中心にする処理関連 --------------------------
     // 地図の初期化関数
     func initMap() {
         // 縮尺を設定
@@ -337,9 +339,9 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         region.center = coordinate
         mapView.setRegion(region,animated:true)
     }
-    // --------------------- 現在位置を中心にする処理関連 --------------------------
+    // -- ↑ ------------------ 現在位置を中心にする処理関連 --------------------------
 
-    //---------------------- 長押しを探知する機能を追加 ----------------------------
+    // -- ↓ ------------------- 長押しを探知する機能を追加 ---------------------------
     // 長押しした時にピンを置く処理
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
         
@@ -364,7 +366,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         self.mapView.addAnnotation(pin)
 
     }
-    //---------------------- 長押しを探知する機能を追加 ----------------------------
+    // -- ↑ ------------------- 長押しを探知する機能を追加 ---------------------------
 
     
 }
