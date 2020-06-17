@@ -282,9 +282,23 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     // ------------------------- ピンタップ時の機能を追加 -----------------------------
     // ピンをタップした時の処理
     @objc func TapPin(sender: UITapGestureRecognizer) {
-        let url = URL(string: "https://www.softbankhawks.co.jp/")!
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
+        // どのピンがタップされたか取得
+        // ピンに対応するURLを開く
+        let fukuokaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let tokyoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let yokohamaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let hyogoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let hiroshimaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let meijiUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let nagoyaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let saitamaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let sendaiUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let chibaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let hokkaidoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let osakaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        
+        if UIApplication.shared.canOpenURL(fukuokaUrl) {
+            UIApplication.shared.open(fukuokaUrl)
         }
     }
     // ------------------------- ピンタップ時の機能を追加 -----------------------------
