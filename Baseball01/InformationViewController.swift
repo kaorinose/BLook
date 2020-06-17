@@ -286,17 +286,17 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         //let title = view.annotation?.title
 
         let fukuokaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let tokyoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let yokohamaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let hyogoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let hiroshimaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let meijiUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let nagoyaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let saitamaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let sendaiUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let chibaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let hokkaidoUrl = URL(string: "https://www.softbankhawks.co.jp/")!
-        let osakaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
+        let tokyoUrl = URL(string: "https://www.giants.jp/top.html")!
+        let yokohamaUrl = URL(string: "https://www.baystars.co.jp/")!
+        let hyogoUrl = URL(string: "https://hanshintigers.jp/")!
+        let hiroshimaUrl = URL(string: "https://www.carp.co.jp/")!
+        let meijiUrl = URL(string: "https://www.yakult-swallows.co.jp/")!
+        let nagoyaUrl = URL(string: "https://dragons.jp/")!
+        let saitamaUrl = URL(string: "https://www.seibulions.jp/")!
+        let sendaiUrl = URL(string: "https://www.rakuteneagles.jp/")!
+        let chibaUrl = URL(string: "https://www.marines.co.jp/")!
+        let hokkaidoUrl = URL(string: "https://www.fighters.co.jp/")!
+        let osakaUrl = URL(string: "https://www.buffaloes.co.jp/")!
         
         // ピンに対応するURLを開く
         if UIApplication.shared.canOpenURL(fukuokaUrl) {
