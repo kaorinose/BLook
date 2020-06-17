@@ -302,7 +302,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="L4N-qt-bBN"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="settings" id="neZ-1k-Vqj"/>
+                    <tabBarItem key="tabBarItem" title="" image="voice" id="neZ-1k-Vqj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmZ-Ec-z7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,7 +337,7 @@
         <image name="info" width="72" height="72"/>
         <image name="multiply" catalog="system" width="64" height="54"/>
         <image name="search" width="72" height="72"/>
-        <image name="settings" width="60" height="60"/>
+        <image name="voice" width="72" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qYc-0G-amY"/>
