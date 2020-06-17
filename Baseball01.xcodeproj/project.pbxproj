@@ -18,6 +18,12 @@
 		A70F454A248691C400F1AE28 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F4549248691C400F1AE28 /* PostViewController.swift */; };
 		A70F454C248691FD00F1AE28 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F454B248691FD00F1AE28 /* InformationViewController.swift */; };
 		A70F454E2486923700F1AE28 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F454D2486923700F1AE28 /* SettingViewController.swift */; };
+		A72BC1E5249A302E001E491B /* cheer1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72BC1E4249A302E001E491B /* cheer1.mp3 */; };
+		A72BC1E7249A303C001E491B /* stadium-clapping-hands1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72BC1E6249A303C001E491B /* stadium-clapping-hands1.mp3 */; };
+		A72BC1E9249A3052001E491B /* line-girl1-ganbatte1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72BC1E8249A3052001E491B /* line-girl1-ganbatte1.mp3 */; };
+		A72BC1EB249A305C001E491B /* line-girl1-otsukaresamadesu1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72BC1EA249A305C001E491B /* line-girl1-otsukaresamadesu1.mp3 */; };
+		A72BC1ED249A3066001E491B /* line-girl1-haihaai1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72BC1EC249A3066001E491B /* line-girl1-haihaai1.mp3 */; };
+		A72BC1EF249A307D001E491B /* line-girl1-byebye1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72BC1EE249A307D001E491B /* line-girl1-byebye1.mp3 */; };
 		A7A25F35248696B9004A8031 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A25F34248696B9004A8031 /* Event.swift */; };
 		A7A25F3724869835004A8031 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A25F3624869835004A8031 /* TabBarViewController.swift */; };
 		A7A25F3924869900004A8031 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A25F3824869900004A8031 /* Background.swift */; };
@@ -37,6 +43,12 @@
 		A70F4549248691C400F1AE28 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A70F454B248691FD00F1AE28 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		A70F454D2486923700F1AE28 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A72BC1E4249A302E001E491B /* cheer1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheer1.mp3; sourceTree = "<group>"; };
+		A72BC1E6249A303C001E491B /* stadium-clapping-hands1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "stadium-clapping-hands1.mp3"; sourceTree = "<group>"; };
+		A72BC1E8249A3052001E491B /* line-girl1-ganbatte1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "line-girl1-ganbatte1.mp3"; sourceTree = "<group>"; };
+		A72BC1EA249A305C001E491B /* line-girl1-otsukaresamadesu1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "line-girl1-otsukaresamadesu1.mp3"; sourceTree = "<group>"; };
+		A72BC1EC249A3066001E491B /* line-girl1-haihaai1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "line-girl1-haihaai1.mp3"; sourceTree = "<group>"; };
+		A72BC1EE249A307D001E491B /* line-girl1-byebye1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "line-girl1-byebye1.mp3"; sourceTree = "<group>"; };
 		A7A25F34248696B9004A8031 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A7A25F3624869835004A8031 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A7A25F3824869900004A8031 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -87,6 +99,12 @@
 				A70F454B248691FD00F1AE28 /* InformationViewController.swift */,
 				A70F454D2486923700F1AE28 /* SettingViewController.swift */,
 				A7A25F3624869835004A8031 /* TabBarViewController.swift */,
+				A72BC1E6249A303C001E491B /* stadium-clapping-hands1.mp3 */,
+				A72BC1E4249A302E001E491B /* cheer1.mp3 */,
+				A72BC1E8249A3052001E491B /* line-girl1-ganbatte1.mp3 */,
+				A72BC1EA249A305C001E491B /* line-girl1-otsukaresamadesu1.mp3 */,
+				A72BC1EC249A3066001E491B /* line-girl1-haihaai1.mp3 */,
+				A72BC1EE249A307D001E491B /* line-girl1-byebye1.mp3 */,
 				A70F4537248690AF00F1AE28 /* Main.storyboard */,
 				A70F453A248690B100F1AE28 /* Assets.xcassets */,
 				A70F453C248690B100F1AE28 /* LaunchScreen.storyboard */,
@@ -172,6 +190,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72BC1E9249A3052001E491B /* line-girl1-ganbatte1.mp3 in Resources */,
+				A72BC1EB249A305C001E491B /* line-girl1-otsukaresamadesu1.mp3 in Resources */,
+				A72BC1E7249A303C001E491B /* stadium-clapping-hands1.mp3 in Resources */,
+				A72BC1EF249A307D001E491B /* line-girl1-byebye1.mp3 in Resources */,
+				A72BC1E5249A302E001E491B /* cheer1.mp3 in Resources */,
+				A72BC1ED249A3066001E491B /* line-girl1-haihaai1.mp3 in Resources */,
 				A70F453E248690B100F1AE28 /* LaunchScreen.storyboard in Resources */,
 				A70F453B248690B100F1AE28 /* Assets.xcassets in Resources */,
 				A70F4539248690AF00F1AE28 /* Main.storyboard in Resources */,
