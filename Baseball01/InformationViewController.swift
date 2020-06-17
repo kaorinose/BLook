@@ -38,6 +38,9 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
+        // 表示タイプを航空写真と地図のハイブリッドに設定
+        mapView.mapType = MKMapType.hybrid
+        
         // -- ↓ --------------------- 所在地にピン設定 -------------------------------
         // 福岡ソフトバンクホークス（福岡）
         // 緯度
