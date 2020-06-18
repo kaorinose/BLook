@@ -164,13 +164,18 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
         //スケジュール取得
         let realm = try! Realm()
-        var result = realm.objects(Event.self)
-        result = result.filter("date = '\(da)'")
-        print(result)
-        for ev in result {
-            if ev.date == da {
+        var events = realm.objects(Event.self)
+        events = events.filter("date = '\(da)'")
+        print(events)
+        for event in events {
+            // string型にする
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd"
+            let dateString = formatter.string(from: event.date)
+            
+            if dateString == da {
                 //日付に合致する「Event.swift」で定義しているplaceを持ってくる
-                labelDate.text = ev.place
+                labelDate.text = event.place
                 labelDate.textColor = .black
                 view.addSubview(labelDate)
             }

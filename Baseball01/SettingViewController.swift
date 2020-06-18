@@ -50,7 +50,8 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 背景に表示したい画像の名前(拡張子含む)を引数とする。
-        self.view.addBackground(name: "ground.jpg")
+        //self.view.addBackground(name: "ground.jpg")
+        self.view.backgroundColor = UIColor(red: 0.65, green: 0.94, blue: 1, alpha: 1)
     }
     
     // 拍手用（再生・停止ボタン）

@@ -39,7 +39,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         // 表示タイプを航空写真と地図のハイブリッドに設定
-        mapView.mapType = MKMapType.hybrid
+        //mapView.mapType = MKMapType.hybrid
         
         // -- ↓ --------------------- 所在地にピン設定 -------------------------------
         // 福岡ソフトバンクホークス（福岡）
@@ -286,7 +286,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     // ピンをタップした時の処理
     @objc func TapPin(sender: UITapGestureRecognizer) {
         // どのピンがタップされたか取得
-        //let title = view.annotation?.title
+        //let title = view.annotation.title
 
         let fukuokaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
         let tokyoUrl = URL(string: "https://www.giants.jp/top.html")!
@@ -301,10 +301,12 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let hokkaidoUrl = URL(string: "https://www.fighters.co.jp/")!
         let osakaUrl = URL(string: "https://www.buffaloes.co.jp/")!
         
+        //if let point = title{
         // ピンに対応するURLを開く
         if UIApplication.shared.canOpenURL(fukuokaUrl) {
                 UIApplication.shared.open(fukuokaUrl)
         }
+        //}
     }
     // -- ↑ --------------------- ピンタップ時の機能を追加 ----------------------------
     

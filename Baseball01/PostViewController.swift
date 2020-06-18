@@ -29,6 +29,7 @@ class PostViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,9 +37,7 @@ class PostViewController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
 
-        // --------------------- 日付型式エラー中 --------------------------------
-        //datePicker.date = event.date
-        // --------------------- 日付型式エラー中 --------------------------------
+        datePicker.date = event.date
         placeTextField.text = event.place
         companionTextField.text = event.companion
         seatTextField.text = event.seat
@@ -50,9 +49,8 @@ class PostViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         try! realm.write {
-            // --------------------- 日付型式エラー中 --------------------------------
-            //self.event.date = self.datePicker.date
-            // --------------------- 日付型式エラー中 --------------------------------
+            
+            self.event.date = self.datePicker.date
             self.event.place = self.placeTextField.text!
             self.event.companion = self.companionTextField.text!
             self.event.seat = self.seatTextField.text!
