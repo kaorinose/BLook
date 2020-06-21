@@ -276,7 +276,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
         
     // -- ↓ --------------------- ピンタップ時の機能を追加 ----------------------------
     // ピンをタップした際に呼ばれるdelegate
-    func mapTap(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // どのピンがタップされたかを取得
         let title = view.annotation?.title
         
