@@ -12,11 +12,26 @@ import MapKit
 import CoreLocation
 
 
-class InformationViewController: UIViewController, CLLocationManagerDelegate {
+class InformationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     // CLLocationManagerのメンバ変数を定義する
     @IBOutlet var mapView: MKMapView!
     var locManager: CLLocationManager!
+
+    // ピンを生成
+    let fukuokaPin: MKPointAnnotation = MKPointAnnotation()
+    let tokyoPin: MKPointAnnotation = MKPointAnnotation()
+    let yokohamaPin: MKPointAnnotation = MKPointAnnotation()
+    let hyogoPin: MKPointAnnotation = MKPointAnnotation()
+    let hiroshimaPin: MKPointAnnotation = MKPointAnnotation()
+    let nagoyaPin: MKPointAnnotation = MKPointAnnotation()
+    let meijiPin: MKPointAnnotation = MKPointAnnotation()
+    let saitamaPin: MKPointAnnotation = MKPointAnnotation()
+    let sendaiPin: MKPointAnnotation = MKPointAnnotation()
+    let chibaPin: MKPointAnnotation = MKPointAnnotation()
+    let hokkaidoPin: MKPointAnnotation = MKPointAnnotation()
+    let osakaPin: MKPointAnnotation = MKPointAnnotation()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +57,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         //mapView.mapType = MKMapType.hybrid
         
         // -- ↓ --------------------- 所在地にピン設定 -------------------------------
+        
         // 福岡ソフトバンクホークス（福岡）
         // 緯度
         let fukuokaLatitude: CLLocationDegrees = 33.595211
@@ -49,8 +65,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let fukuokaLongitude: CLLocationDegrees = 130.362182
         // 中心点
         let fukuokaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(fukuokaLatitude, fukuokaLongitude)
-        // ピンを生成
-        let fukuokaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         fukuokaPin.coordinate = fukuokaCenter
         // タイトルを設定
@@ -67,8 +81,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let tokyoLongitude: CLLocationDegrees = 139.751801
         // 中心点
         let tokyoCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(tokyoLatitude, tokyoLongitude)
-        // ピンを生成
-        let tokyoPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         tokyoPin.coordinate = tokyoCenter
         // タイトルを設定
@@ -85,8 +97,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let yokohamaLongitude: CLLocationDegrees = 139.64005
         // 中心点
         let yokohamaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(yokohamaLatitude, yokohamaLongitude)
-        // ピンを生成
-        let yokohamaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         yokohamaPin.coordinate = yokohamaCenter
         // タイトルを設定
@@ -103,8 +113,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let hyogoLongitude: CLLocationDegrees = 135.361594
         // 中心点
         let hyogoCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(hyogoLatitude, hyogoLongitude)
-        // ピンを生成
-        let hyogoPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         hyogoPin.coordinate = hyogoCenter
         // タイトルを設定
@@ -121,8 +129,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let hiroshimaLongitude: CLLocationDegrees = 132.484678
         // 中心点
         let hiroshimaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(hiroshimaLatitude, hiroshimaLongitude)
-        // ピンを生成
-        let hiroshimaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         hiroshimaPin.coordinate = hiroshimaCenter
         // タイトルを設定
@@ -139,8 +145,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let nagoyaLongitude: CLLocationDegrees = 136.947498
         // 中心点
         let nagoyaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(nagoyaLatitude, nagoyaLongitude)
-        // ピンを生成
-        let nagoyaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         nagoyaPin.coordinate = nagoyaCenter
         // タイトルを設定
@@ -157,8 +161,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let meijiLongitude: CLLocationDegrees = 139.717083
         // 中心点
         let meijiCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(meijiLatitude, meijiLongitude)
-        // ピンを生成
-        let meijiPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         meijiPin.coordinate = meijiCenter
         // タイトルを設定
@@ -175,8 +177,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let saitamaLongitude: CLLocationDegrees = 139.420484
         // 中心点
         let saitamaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(saitamaLatitude, saitamaLongitude)
-        // ピンを生成
-        let saitamaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         saitamaPin.coordinate = saitamaCenter
         // タイトルを設定
@@ -193,8 +193,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let sendaiLongitude: CLLocationDegrees = 140.902609
         // 中心点
         let sendaiCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(sendaiLatitude, sendaiLongitude)
-        // ピンを生成
-        let sendaiPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         sendaiPin.coordinate = sendaiCenter
         // タイトルを設定
@@ -211,8 +209,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let chibaLongitude: CLLocationDegrees = 140.031186
         // 中心点
         let chibaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(chibaLatitude, chibaLongitude)
-        // ピンを生成
-        let chibaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         chibaPin.coordinate = chibaCenter
         // タイトルを設定
@@ -229,8 +225,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let hokkaidoLongitude: CLLocationDegrees = 141.410007
         // 中心点
         let hokkaidoCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(hokkaidoLatitude, hokkaidoLongitude)
-        // ピンを生成
-        let hokkaidoPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         hokkaidoPin.coordinate = hokkaidoCenter
         // タイトルを設定
@@ -247,8 +241,6 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let osakaLongitude: CLLocationDegrees = 135.476274
         // 中心点
         let osakaCenter: CLLocationCoordinate2D = CLLocationCoordinate2DMake(osakaLatitude, osakaLongitude)
-        // ピンを生成
-        let osakaPin: MKPointAnnotation = MKPointAnnotation()
         // 座標を設定
         osakaPin.coordinate = osakaCenter
         // タイトルを設定
@@ -261,10 +253,10 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         
         // -- ↓ -------------------- ピンタップを探知する機能を追加 ---------------------
         // ジェスチャーの生成
-        let TapGesture = UITapGestureRecognizer()
-        //ボタンを押したときの処理
-        TapGesture.addTarget(self, action:#selector(TapPin))
-        mapView.addGestureRecognizer(TapGesture)
+        //let TapGesture = UITapGestureRecognizer()
+        // ピンをタップときの処理
+        //TapGesture.addTarget(self, action:#selector(mapTap))
+        //mapView.addGestureRecognizer(TapGesture)
         // -- ↑ -------------------- ピンタップを探知する機能を追加 ---------------------
         
         // -- ↓ ----------------- 現在位置を中心にする処理関連 -------------------------
@@ -283,11 +275,11 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     }
         
     // -- ↓ --------------------- ピンタップ時の機能を追加 ----------------------------
-    // ピンをタップした時の処理
-    @objc func TapPin(sender: UITapGestureRecognizer) {
-        // どのピンがタップされたか取得
-        //let title = view.annotation.title
-
+    // ピンをタップした際に呼ばれるdelegate
+    func mapTap(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // どのピンがタップされたかを取得
+        let title = view.annotation?.title
+        
         let fukuokaUrl = URL(string: "https://www.softbankhawks.co.jp/")!
         let tokyoUrl = URL(string: "https://www.giants.jp/top.html")!
         let yokohamaUrl = URL(string: "https://www.baystars.co.jp/")!
@@ -301,12 +293,70 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
         let hokkaidoUrl = URL(string: "https://www.fighters.co.jp/")!
         let osakaUrl = URL(string: "https://www.buffaloes.co.jp/")!
         
-        //if let point = title{
-        // ピンに対応するURLを開く
-        if UIApplication.shared.canOpenURL(fukuokaUrl) {
+        // タップされたピンのタイトルが何かを判断し、ピンに対応するURLを開く
+        if title == fukuokaPin.title {
+            print("福岡")
+            if UIApplication.shared.canOpenURL(fukuokaUrl) {
                 UIApplication.shared.open(fukuokaUrl)
+            }
+        } else if title == tokyoPin.title {
+            print("東京")
+            if UIApplication.shared.canOpenURL(tokyoUrl) {
+                UIApplication.shared.open(tokyoUrl)
+            }
+        } else if title == yokohamaPin.title {
+            print("横浜")
+            if UIApplication.shared.canOpenURL(yokohamaUrl) {
+                UIApplication.shared.open(yokohamaUrl)
+            }
+        } else if title == hyogoPin.title {
+            print("兵庫")
+            if UIApplication.shared.canOpenURL(hyogoUrl) {
+                UIApplication.shared.open(hyogoUrl)
+            }
+        } else if title == hiroshimaPin.title {
+            print("広島")
+            if UIApplication.shared.canOpenURL(hiroshimaUrl) {
+                UIApplication.shared.open(hiroshimaUrl)
+            }
+        } else if title == meijiPin.title {
+            print("明治")
+            if UIApplication.shared.canOpenURL(meijiUrl) {
+                UIApplication.shared.open(meijiUrl)
+            }
+        } else if title == nagoyaPin.title {
+            print("名古屋")
+            if UIApplication.shared.canOpenURL(nagoyaUrl) {
+                UIApplication.shared.open(nagoyaUrl)
+            }
+        } else if title == saitamaPin.title {
+            print("埼玉")
+            if UIApplication.shared.canOpenURL(saitamaUrl) {
+                UIApplication.shared.open(saitamaUrl)
+            }
+        } else if title == sendaiPin.title {
+            print("仙台")
+            if UIApplication.shared.canOpenURL(sendaiUrl) {
+                UIApplication.shared.open(sendaiUrl)
+            }
+        } else if title == chibaPin.title {
+            print("千葉")
+            if UIApplication.shared.canOpenURL(chibaUrl) {
+                UIApplication.shared.open(chibaUrl)
+            }
+        } else if title == hokkaidoPin.title {
+            print("北海道")
+            if UIApplication.shared.canOpenURL(hokkaidoUrl) {
+                UIApplication.shared.open(hokkaidoUrl)
+            }
+        } else if title == osakaPin.title {
+            print("大阪")
+            if UIApplication.shared.canOpenURL(osakaUrl) {
+                UIApplication.shared.open(osakaUrl)
+            }
+        } else{
+            print("対象なし")
         }
-        //}
     }
     // -- ↑ --------------------- ピンタップ時の機能を追加 ----------------------------
     

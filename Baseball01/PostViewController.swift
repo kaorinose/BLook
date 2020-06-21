@@ -29,14 +29,22 @@ class PostViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    // 保存ボタンをタップしたときに呼ばれるメソッド
+    @IBAction func saveButton(_ sender: Any) {
+        // saveEventを実行する
+
+        // ホーム画面に戻る
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
 
+        print("event: \(event)")
+        
         datePicker.date = event.date
         placeTextField.text = event.place
         companionTextField.text = event.companion
@@ -47,9 +55,11 @@ class PostViewController: UIViewController {
         loseCountTextField.text = event.loseCount
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    // DB書き込み処理
+    @objc func saveEvent(_ animated: Bool) {
+        print("データ書き込み開始")
         try! realm.write {
-            
+            // 日付表示の内容とその他入力内容が書き込まれる
             self.event.date = self.datePicker.date
             self.event.place = self.placeTextField.text!
             self.event.companion = self.companionTextField.text!
@@ -59,9 +69,10 @@ class PostViewController: UIViewController {
             self.event.loseTeam = self.loseTeamTextField.text!
             self.event.loseCount = self.loseCountTextField.text!
             self.realm.add(self.event, update: .modified)
+            print("データ書き込み中")
         }
-
-        super.viewWillDisappear(animated)
+        self.saveEvent(animated)
+        print("データ書き込み完了")
     }
     
     @objc func dismissKeyboard(){
