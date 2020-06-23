@@ -58,7 +58,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
         //mapView.mapType = MKMapType.hybrid
         
         // -- ↓ --------------------- 所在地にピン設定 -------------------------------
-        
+              
         // 福岡ソフトバンクホークス（福岡）
         // 緯度
         let fukuokaLatitude: CLLocationDegrees = 33.595211
@@ -277,7 +277,10 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
     
     // -- ↓ --------------------- ピンタップ時の機能を追加 ----------------------------
     // ピンをタップした際に呼ばれるdelegate
+    
     func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        print("呼ばれます")
         // どのピンがタップされたかを取得
         let title = view.annotation?.title
         
