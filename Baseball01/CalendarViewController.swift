@@ -137,19 +137,32 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
         let da = "\(year)/\(m)/\(d)"
 
+        print("DEBUG da : \(da)")
+        
         //クリックしたら、日付が表示される。
         Date.text = "\(m)/\(d)"
         view.addSubview(Date)
 
         //スケジュール取得
         let realm = try! Realm()
-        var events = realm.objects(Event.self)
-        events = events.filter("date = '\(da)'")
-        print(events)
-        for event in events {
+        var result = realm.objects(Event.self)
+        
+        print("DEBUG result1 : \(result)")
+        
+        // -- ↓ -------------------------- daをDate型に変更する ------------------------------------
+        
+        
+        // -- ↑ -------------------------- daをDate型に変更する ------------------------------------
+        
+        result = result.filter("date = '\(da)'")
+        
+        print("DEBUG result2 : \(result)")
+        
+        for event in result {
             // string型にする
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy/MM/dd"
+            
             let dateString = formatter.string(from: event.date)
             
             if dateString == da {

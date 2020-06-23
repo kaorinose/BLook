@@ -39,6 +39,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
         // delegateを登録する
         locManager = CLLocationManager()
         locManager.delegate = self
+        mapView.delegate = self
             
         // 位置情報の使用の許可を得る
         locManager.requestWhenInUseAuthorization()
@@ -273,10 +274,10 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
         // -- ↑ -------------------- 長押しを探知する機能を追加 ------------------------
         
     }
-        
+    
     // -- ↓ --------------------- ピンタップ時の機能を追加 ----------------------------
     // ピンをタップした際に呼ばれるdelegate
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // どのピンがタップされたかを取得
         let title = view.annotation?.title
         

@@ -29,7 +29,7 @@ class PostViewController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
 
-        print("event: \(event)")
+        print("DEBUG event: \(event)")
         
         //datePicker.date = event.date
         //placeTextField.text = event.place
