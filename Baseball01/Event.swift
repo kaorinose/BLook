@@ -14,7 +14,7 @@ class Event: Object {
     // 管理用 ID。プライマリーキー
     @objc dynamic var id = 0
     // 日付
-    @objc dynamic var date = Date()
+    @objc dynamic var date: String = ""
     // 場所
     @objc dynamic var place: String = ""
     // 同伴者

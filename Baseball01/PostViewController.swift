@@ -22,6 +22,7 @@ class PostViewController: UIViewController {
     
     let realm = try! Realm()
     var event: Event!
+    var dateString: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class PostViewController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
 
-        print("DEBUG event: \(event)")
+        print("DEBUG PostViewController event: \(event)")
         
         //datePicker.date = event.date
         //placeTextField.text = event.place
@@ -50,22 +51,28 @@ class PostViewController: UIViewController {
     // 保存ボタンをタップしたときに呼ばれるメソッド
     @IBAction func saveButton(_ sender: Any) {
         // DB書き込み処理
-        print("データ書き込み開始")
+        print("DEBUG PostViewController 1：データ書き込み開始")
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let dateString = formatter.string(from: datePicker.date)
+        
         try! realm.write {
             // 日付表示の内容とその他入力内容が書き込まれる
-            let Events = [Event(value: ["date": datePicker.date, "place": placeTextField.text!, "companion": companionTextField.text!, "seat": seatTextField.text!, "winTeam": winTeamTextField.text!, "winCount": winCountTextField.text!, "loseTeam": loseTeamTextField.text!, "loseCount": loseCountTextField.text!])]
+            let Events = [Event(value: ["date": dateString, "place": placeTextField.text!, "companion": companionTextField.text!, "seat": seatTextField.text!, "winTeam": winTeamTextField.text!, "winCount": winCountTextField.text!, "loseTeam": loseTeamTextField.text!, "loseCount": loseCountTextField.text!])]
             realm.add(Events)
             print("Events: \(Events)")
         }
-        print("データ書き込み完了")
+        print("DEBUG PostViewController 1：データ書き込み完了")
         // ホーム画面に戻る
         self.dismiss(animated: true, completion: nil)
     }
     
+    // -------------------------------------- 削除予定 --------------------------------------------
     // DB書き込み処理
-    @objc func saveEvent(_ : UIButton) {
-        print("データ書き込み開始")
-        try! realm.write {
+    //@objc func saveEvent(_ : UIButton) {
+        //print("DEBUG PostViewController 2：データ書き込み開始")
+        //try! realm.write {
             // 日付表示の内容とその他入力内容が書き込まれる
             //self.event.date = self.datePicker.date
             //self.event.place = self.placeTextField.text!
@@ -76,10 +83,11 @@ class PostViewController: UIViewController {
             //self.event.loseTeam = self.loseTeamTextField.text!
             //self.event.loseCount = self.loseCountTextField.text!
             //self.realm.add(self.event, update: .modified)
-            print("データ書き込み中")
-        }
-        print("データ書き込み完了")
-    }
+            //print("DEBUG PostViewController 2：データ書き込み中")
+        //}
+        //print("DEBUG PostViewController 2：データ書き込み完了")
+    //}
+    // -------------------------------------- 削除予定 --------------------------------------------
     
     @objc func dismissKeyboard(){
         // キーボードを閉じる

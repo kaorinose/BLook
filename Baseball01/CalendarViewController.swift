@@ -137,7 +137,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
         let da = "\(year)/\(m)/\(d)"
 
-        print("DEBUG da : \(da)")
+        print("DEBUG CalendarViewController da : \(da)")
         
         //クリックしたら、日付が表示される。
         Date.text = "\(m)/\(d)"
@@ -147,30 +147,33 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         let realm = try! Realm()
         var result = realm.objects(Event.self)
         
-        print("DEBUG result1 : \(result)")
-        
-        // -- ↓ -------------------------- daをDate型に変更する ------------------------------------
-        
-        
-        // -- ↑ -------------------------- daをDate型に変更する ------------------------------------
+        print("DEBUG CalendarViewController result1 : \(result)")
         
         result = result.filter("date = '\(da)'")
         
-        print("DEBUG result2 : \(result)")
+        print("DEBUG CalendarViewController result2 : \(result)")
         
         for event in result {
-            // string型にする
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd"
             
-            let dateString = formatter.string(from: event.date)
-            
-            if dateString == da {
-                //日付に合致する「Event.swift」で定義しているplaceを持ってくる
+            if event.date == da {
                 labelDate.text = event.place
                 labelDate.textColor = .black
                 view.addSubview(labelDate)
             }
+            // -- ↓ ---------------------- daをDate型→stringへ変換する -------------------------
+            // string型にする
+            //let formatter = DateFormatter()
+            //formatter.dateFormat = "yyyy/MM/dd"
+            
+            //let dateString = formatter.string(from: event.date)
+            
+            //if dateString == da {
+                //日付に合致する「Event.swift」で定義しているplaceを持ってくる
+                //labelDate.text = event.place
+                //labelDate.textColor = .black
+                //view.addSubview(labelDate)
+            //}
+        // -- ↑ -------------------------- daをDate型→stringへ変換する -------------------------
         }
 
     }

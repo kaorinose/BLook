@@ -48,9 +48,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
 
-        let dateString:String = formatter.string(from: event.date)
-        cell.detailTextLabel?.text = dateString
-        
+        // -- ↓ ---------------------- string型を使えるように変更が必要 -------------------------
+        //let dateString:String = formatter.string(from: event.date)
+        //cell.detailTextLabel?.text = dateString
+        // -- ↑ ---------------------- string型を使えるように変更が必要 -------------------------
         return cell
     }
 
