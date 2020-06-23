@@ -18,7 +18,7 @@ let h = UIScreen.main.bounds.size.height
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     //スケジュール内容
-    let labelDate = UILabel(frame: CGRect(x: 5, y: 580, width: 400, height: 50))
+    let labelDate = UILabel(frame: CGRect(x: 5, y: 580, width: 400, height: 200))
     //「観戦履歴」の表示
     let labelTitle = UILabel(frame: CGRect(x: 0, y: 530, width: 180, height: 50))
     //カレンダー部分
@@ -154,26 +154,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         print("DEBUG CalendarViewController result2 : \(result)")
         
         for event in result {
-            
             if event.date == da {
-                labelDate.text = event.place
+                labelDate.numberOfLines = 0;
+                labelDate.text = "■場所　　：\(event.place)\n" + "■同伴者　：\(event.companion)\n" + "■座席　　：\(event.seat)\n" + "■試合結果　\n" + "　勝利チーム(点数)\n" + "　　：\(event.winTeam)（\(event.winCount)）\n" + "　敗北チーム(点数)\n" + "　　：\(event.loseTeam)（\(event.loseCount)）\n"
                 labelDate.textColor = .black
                 view.addSubview(labelDate)
             }
-            // -- ↓ ---------------------- daをDate型→stringへ変換する -------------------------
-            // string型にする
-            //let formatter = DateFormatter()
-            //formatter.dateFormat = "yyyy/MM/dd"
-            
-            //let dateString = formatter.string(from: event.date)
-            
-            //if dateString == da {
-                //日付に合致する「Event.swift」で定義しているplaceを持ってくる
-                //labelDate.text = event.place
-                //labelDate.textColor = .black
-                //view.addSubview(labelDate)
-            //}
-        // -- ↑ -------------------------- daをDate型→stringへ変換する -------------------------
         }
 
     }
