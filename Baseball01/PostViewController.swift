@@ -68,27 +68,6 @@ class PostViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // -------------------------------------- 削除予定 --------------------------------------------
-    // DB書き込み処理
-    //@objc func saveEvent(_ : UIButton) {
-        //print("DEBUG PostViewController 2：データ書き込み開始")
-        //try! realm.write {
-            // 日付表示の内容とその他入力内容が書き込まれる
-            //self.event.date = self.datePicker.date
-            //self.event.place = self.placeTextField.text!
-            //self.event.companion = self.companionTextField.text!
-            //self.event.seat = self.seatTextField.text!
-            //self.event.winTeam = self.winTeamTextField.text!
-            //self.event.winCount = self.winCountTextField.text!
-            //self.event.loseTeam = self.loseTeamTextField.text!
-            //self.event.loseCount = self.loseCountTextField.text!
-            //self.realm.add(self.event, update: .modified)
-            //print("DEBUG PostViewController 2：データ書き込み中")
-        //}
-        //print("DEBUG PostViewController 2：データ書き込み完了")
-    //}
-    // -------------------------------------- 削除予定 --------------------------------------------
-    
     @objc func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)

@@ -44,14 +44,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Cellに値を設定する
         let event = eventArray[indexPath.row]
         cell.textLabel?.text = event.place
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-
-        // -- ↓ ---------------------- string型を使えるように変更が必要 -------------------------
-        //let dateString:String = formatter.string(from: event.date)
-        //cell.detailTextLabel?.text = dateString
-        // -- ↑ ---------------------- string型を使えるように変更が必要 -------------------------
+        cell.detailTextLabel?.text = event.date
         return cell
     }
 

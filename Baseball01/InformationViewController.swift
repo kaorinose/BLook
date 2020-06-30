@@ -265,22 +265,46 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
         //initMap()
         // -- ↑ ----------------- 現在位置を中心にする処理関連 -------------------------
         
-        // -- ↓ ------------------ 長押しを探知する機能を追加 --------------------------
+        // -- ↓ ------------------ 長押しを探知する機能を追加（削除予定）  --------------------------
         //ジェスチャーの生成
-        let longPressGesture = UILongPressGestureRecognizer()
+        //let longPressGesture = UILongPressGestureRecognizer()
         //ボタンを押したときの処理
-        longPressGesture.addTarget(self, action:#selector(longPressed))
-        mapView.addGestureRecognizer(longPressGesture)
-        // -- ↑ -------------------- 長押しを探知する機能を追加 ------------------------
+        //longPressGesture.addTarget(self, action:#selector(longPressed))
+        //mapView.addGestureRecognizer(longPressGesture)
+        // -- ↑ -------------------- 長押しを探知する機能を追加（削除予定）  ------------------------
         
     }
     
     // -- ↓ --------------------- ピンタップ時の機能を追加 ----------------------------
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+       
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+           
+            pinView?.animatesDrop = true     // 落下アニメーションdequeueReusableAnnotationView(withIdentifier:
+            pinView?.canShowCallout = true      // tapのdelegateにはコレが効いている
+
+            let rightButton: AnyObject! = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            pinView?.rightCalloutAccessoryView = rightButton as? UIView
+        }
+        else {
+            pinView?.annotation = annotation
+        }
+       
+        return pinView
+    }
+    
     // ピンをタップした際に呼ばれるdelegate
     
     func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        print("呼ばれます")
+        print("DEBUG InformationViewController 1　：ピンのタップを確認")
         // どのピンがタップされたかを取得
         let title = view.annotation?.title
         
@@ -400,32 +424,32 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
     }
     // -- ↑ ------------------ 現在位置を中心にする処理関連 --------------------------
 
-    // -- ↓ ------------------- 長押しを探知する機能を追加 ---------------------------
+    // -- ↓ ------------------- 長押しを探知する機能を追加（削除予定） ---------------------------
     // 長押しした時にピンを置く処理
-    @objc func longPressed(sender: UILongPressGestureRecognizer) {
+    //objc func longPressed(sender: UILongPressGestureRecognizer) {
         
         // この処理を書くことにより、指を離したときだけ反応するようにする
-        if sender.state != UIGestureRecognizer.State.began {
-            return
-        }
+        //if sender.state != UIGestureRecognizer.State.began {
+            //return
+        //}
 
         // senderから長押しした地図上の座標を取得
-        let tappedLocation = sender.location(in:mapView)
-        let tappedPoint = mapView.convert(tappedLocation, toCoordinateFrom: mapView)
+        //let tappedLocation = sender.location(in:mapView)
+        //let tappedPoint = mapView.convert(tappedLocation, toCoordinateFrom: mapView)
 
         // ピンの生成
-        let pin = MKPointAnnotation()
+        //let pin = MKPointAnnotation()
         // ピンを置く場所を指定
-        pin.coordinate = tappedPoint
+        //pin.coordinate = tappedPoint
         // ピンのタイトルを設定
-        pin.title = "タイトル"
+        //pin.title = "タイトル"
         // ピンのサブタイトルの設定
-        pin.subtitle = "サブタイトル"
+        //pin.subtitle = "サブタイトル"
         // ピンをMapViewの上に置く
-        self.mapView.addAnnotation(pin)
+        //self.mapView.addAnnotation(pin)
 
-    }
-    // -- ↑ ------------------- 長押しを探知する機能を追加 ---------------------------
+    //}
+    // -- ↑ ------------------- 長押しを探知する機能を追加（削除予定）  ---------------------------
 
     
 }

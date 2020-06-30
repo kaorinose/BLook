@@ -163,4 +163,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         }
 
     }
+    
+    // ------------------------------------- 実装が必要 ---------------------------------
+    //点マークをつける関数
+    //func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
+        //return shouldShowEventDot
+    //}
+    // ------------------------------------- 実装が必要 ---------------------------------
+    
 }
