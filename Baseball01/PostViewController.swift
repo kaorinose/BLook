@@ -23,6 +23,7 @@ class PostViewController: UIViewController {
     let realm = try! Realm()
     var event: Event!
     var dateString: String!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,8 @@ class PostViewController: UIViewController {
 
     // 保存ボタンをタップしたときに呼ばれるメソッド
     @IBAction func saveButton(_ sender: Any) {
+        // エラーフラグ
+        var error:Bool = false
         // DB書き込み処理
         print("DEBUG PostViewController 1：データ書き込み開始")
 
@@ -57,15 +60,113 @@ class PostViewController: UIViewController {
         formatter.dateFormat = "yyyy/MM/dd"
         let dateString = formatter.string(from: datePicker.date)
         
-        try! realm.write {
-            // 日付表示の内容とその他入力内容が書き込まれる
-            let Events = [Event(value: ["date": dateString, "place": placeTextField.text!, "companion": companionTextField.text!, "seat": seatTextField.text!, "winTeam": winTeamTextField.text!, "winCount": winCountTextField.text!, "loseTeam": loseTeamTextField.text!, "loseCount": loseCountTextField.text!])]
-            realm.add(Events)
-            print("Events: \(Events)")
+        // 新規ではない場合（編集の場合）
+        if event != nil {
+            if ( event.date != nil ) {
+                try! realm.write {
+                    // 日付表示の内容とその他入力内容が書き込まれる
+                    //let Events = [Event(value: ["date": dateString, "place": placeTextField.text!, "companion": companionTextField.text!, "seat": seatTextField.text!, "winTeam": winTeamTextField.text!, "winCount": winCountTextField.text!, "loseTeam": loseTeamTextField.text!, "loseCount": loseCountTextField.text!])]
+                    // 配列の宣言
+                    // eventのインスタンス作成
+                    // eventのインスタンスにidを設定
+                    // Eventsの配列に、eventのインスタンスを追加
+                    // データ保存
+                    //realm.add(Events)
+                    
+                    self.event.date = dateString
+                    self.event.place = self.placeTextField.text!
+                    self.event.companion = self.companionTextField.text!
+                    self.event.seat = self.seatTextField.text!
+                    self.event.winTeam = self.winTeamTextField.text!
+                    self.event.winCount = self.winCountTextField.text!
+                    self.event.loseTeam = self.loseTeamTextField.text!
+                    self.event.loseCount = self.loseCountTextField.text!
+                    self.event.id = self.event.id
+                    self.realm.add(self.event, update: .modified)
+
+                    print("event: \(event)")
+                }
+                print("DEBUG PostViewController 1：データ書き込み完了")
+                // ホーム画面に戻る
+                self.dismiss(animated: true, completion: nil)
+            }
         }
-        print("DEBUG PostViewController 1：データ書き込み完了")
-        // ホーム画面に戻る
-        self.dismiss(animated: true, completion: nil)
+        // 新規の場合
+        else {
+            event = Event()
+            // 日付チェック
+            if dateString != "" {
+                self.event.date = dateString
+            }
+            else {
+                error = true
+            }
+            // 場所チェック
+            if self.placeTextField.text! != "" {
+                self.event.place = self.placeTextField.text!
+            }
+            else {
+                error = true
+            }
+            // 同伴者チェック
+            if self.companionTextField.text! != "" {
+                self.event.companion = self.companionTextField.text!
+            }
+            else {
+                error = true
+            }
+            // 座席チェック
+            if self.seatTextField.text! != "" {
+                self.event.seat = self.seatTextField.text!
+            }
+            else {
+                error = true
+            }
+            // 勝利チームチェック
+            if self.winTeamTextField.text! != "" {
+                self.event.winTeam = self.winTeamTextField.text!
+            }
+            else {
+                error = true
+            }
+            // 勝利点数チェック
+            if self.winCountTextField.text! != "" {
+                self.event.winCount = self.winCountTextField.text!
+            }
+            else {
+                error = true
+            }
+            // 敗北チームチェック
+            if self.loseTeamTextField.text! != "" {
+                self.event.loseTeam = self.loseTeamTextField.text!
+            }
+            else {
+                error = true
+            }
+            // 敗北点数チェック
+            if self.loseCountTextField.text! != "" {
+                self.event.loseCount = self.loseCountTextField.text!
+            }
+            else {
+                error = true
+            }
+
+            // 新規の場合はIDを一つカウントアップさせる
+            self.event.id = self.event.id + 1
+            
+            // エラーがなかった(false)のときは書き込み
+            if !error  {
+                try! realm.write {
+                self.realm.add(self.event, update: .modified)
+                }
+            }
+            else {
+                print("DEBUG PostViewController 2 ：　event nil error")
+            }
+            // ホーム画面に戻る
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     @objc func dismissKeyboard(){

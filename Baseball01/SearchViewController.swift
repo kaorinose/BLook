@@ -9,10 +9,11 @@
 import UIKit
 import RealmSwift
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     // テーブルビュー
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchText: UISearchBar!
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
@@ -29,6 +30,39 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        // 検索バーの初期化
+        searchText.delegate = self
+        searchText.placeholder = "場所を入力したら検索できるよ"
+    }
+    
+    // 渡された文字列を含む要素を検索し、テーブルビューを再表示する
+    func searchItems(searchText: String) {
+        //要素を検索する（%@：searchTextで入力された値）
+        if searchText != "" {
+            eventArray = realm.objects(Event.self).filter("place = %@", searchText).sorted(byKeyPath: "date", ascending: true)
+        }
+        // tableViewを再読み込みする
+        tableView.reloadData()
+    }
+    
+    // 検索ボタンがタップされた時
+    func searchBarSearchButtonClicked(_ searchText: UISearchBar) {
+        // 編集時、キャンセルボタンを有効
+        searchText.showsCancelButton = true
+        // 検索する
+        searchItems(searchText: searchText.text! as String)
+    }
+    
+    // キャンセルボタンがタップされた時
+    func searchBarCancelButtonClicked(_ searchText: UISearchBar) {
+        // 検索バーを空にする
+        searchText.text = ""
+        // キーボードを隠す
+        searchText.resignFirstResponder()
+        // 全てを表示
+        eventArray = try! Realm().objects(Event.self).sorted(byKeyPath: "date", ascending: true)
+        // tableViewを再読み込みする
+        tableView.reloadData()
     }
     
     // データの数（＝セルの数）を返すメソッド

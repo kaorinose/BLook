@@ -289,6 +289,7 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate, MK
            
             pinView?.animatesDrop = true     // 落下アニメーションdequeueReusableAnnotationView(withIdentifier:
             pinView?.canShowCallout = true      // tapのdelegateにはコレが効いている
+            pinView?.pinTintColor = UIColor.blue  // 色設定
 
             let rightButton: AnyObject! = UIButton(type: UIButton.ButtonType.detailDisclosure)
             pinView?.rightCalloutAccessoryView = rightButton as? UIView
