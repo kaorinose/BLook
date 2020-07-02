@@ -39,7 +39,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func searchItems(searchText: String) {
         //要素を検索する（%@：searchTextで入力された値）
         if searchText != "" {
-            eventArray = realm.objects(Event.self).filter("place = %@", searchText).sorted(byKeyPath: "date", ascending: true)
+            eventArray = realm.objects(Event.self).filter("place CONTAINS %@", searchText).sorted(byKeyPath: "date", ascending: true)
         }
         // tableViewを再読み込みする
         tableView.reloadData()

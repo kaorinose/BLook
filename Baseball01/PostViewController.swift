@@ -191,7 +191,12 @@ class PostViewController: UIViewController {
             }
             
             // 新しいIDをつける
-            self.event.id = self.realm.objects(Event.self).last!.id + 1
+            // 新規の場合はIDを一つカウントアップさせる
+            if let lastID = self.realm.objects(Event.self).last?.id {
+                self.event.id = lastID + 1
+            } else {
+                self.event.id = 1
+            }
             
             // エラーがなかった(false)のときは書き込み
             if !error  {
