@@ -33,14 +33,33 @@ class PostViewController: UIViewController {
 
         print("DEBUG PostViewController event: \(event)")
         
-        //datePicker.date = event.date
-        //placeTextField.text = event.place
-        //companionTextField.text = event.companion
-        //seatTextField.text = event.seat
-        //winTeamTextField.text = event.winTeam
-        //winCountTextField.text = event.winCount
-        //loseTeamTextField.text = event.loseTeam
-        //loseCountTextField.text = event.loseCount
+        if event != nil {
+            // 日付の型式変換（String型→ Date型(datepicker)）
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd"
+            let dateDate = formatter.date(from: event.date)
+        
+            // dateDateがnil以外の場合
+            if dateDate != nil {
+                datePicker.date = dateDate!
+            }
+            // dateDateがnilの場合
+            else {
+                print("DEBUG PostViewController pass: pass")
+            }
+            
+            placeTextField.text = event.place
+            companionTextField.text = event.companion
+            seatTextField.text = event.seat
+            winTeamTextField.text = event.winTeam
+            winCountTextField.text = event.winCount
+            loseTeamTextField.text = event.loseTeam
+            loseCountTextField.text = event.loseCount
+
+        }
+        // 新規の場合
+        else {
+        }
     }
     
     // 戻るボタンをタップしたときに呼ばれるメソッド

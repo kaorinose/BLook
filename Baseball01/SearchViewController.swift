@@ -77,8 +77,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         // Cellに値を設定する
         let event = eventArray[indexPath.row]
-        cell.textLabel?.text = event.place
-        cell.detailTextLabel?.text = event.date
+        cell.textLabel?.text = event.date
+        cell.detailTextLabel?.text = event.place
         return cell
     }
 
@@ -110,6 +110,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "cellSegue" {
             let indexPath = self.tableView.indexPathForSelectedRow
             postViewController.event = eventArray[indexPath!.row]
+            //print("DEBUG SearchViewController 　： \(eventArray[indexPath!.row])")
         } else {
             let event = Event()
 
