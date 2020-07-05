@@ -32,14 +32,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         // 検索バーの初期化
         searchText.delegate = self
-        searchText.placeholder = "場所を入力したら検索できるよ"
+        searchText.placeholder = "同伴者名を入れると絞り込みができるよ！"
     }
     
     // 渡された文字列を含む要素を検索し、テーブルビューを再表示する
     func searchItems(searchText: String) {
         //要素を検索する（%@：searchTextで入力された値）
         if searchText != "" {
-            eventArray = realm.objects(Event.self).filter("place CONTAINS %@", searchText).sorted(byKeyPath: "date", ascending: true)
+            eventArray = realm.objects(Event.self).filter("companion CONTAINS %@", searchText).sorted(byKeyPath: "date", ascending: true)
         }
         // tableViewを再読み込みする
         tableView.reloadData()
