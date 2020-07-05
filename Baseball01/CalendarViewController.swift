@@ -164,11 +164,31 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
     }
     
-    // ------------------------------------- 実装が必要 ---------------------------------
-    //点マークをつける関数
-    //func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
-        //return shouldShowEventDot
-    //}
-    // ------------------------------------- 実装が必要 ---------------------------------
+    // カレンダー処理(点マークをつける処理)
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int{
+        //return 1
+        let tmpDate = Calendar(identifier: .gregorian)
+        let year = tmpDate.component(.year, from: date)
+        let month = tmpDate.component(.month, from: date)
+        let day = tmpDate.component(.day, from: date)
+        let m = String(format: "%02d", month)
+        let d = String(format: "%02d", day)
+        let da = "\(year)/\(m)/\(d)"
+        
+        // 対象の日付が設定されているデータを取得する
+        let realm = try! Realm()
+        var result = realm.objects(Event.self)
+        result = result.filter("date = '\(da)'")
+        
+        // 点マークの数を表示する値を設定する
+        var eventCount = 0
+        
+        for event in result {
+            if event.date == da {
+                eventCount = 1
+            }
+        }
+        return eventCount
+    }
     
 }
