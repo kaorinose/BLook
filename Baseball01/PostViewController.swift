@@ -24,9 +24,11 @@ class PostViewController: UIViewController {
     var event: Event!
     var dateString: String!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
