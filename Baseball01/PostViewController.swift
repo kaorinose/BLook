@@ -162,11 +162,18 @@ class PostViewController: UIViewController {
                     self.event.loseCount = self.loseCountTextField.text!
                     self.realm.add(self.event, update: .modified)
                 }
+                // ホーム画面に戻る
+                self.dismiss(animated: true, completion: nil)
             }
             print("DEBUG PostViewController 1：データ書き込み完了")
 
-            // ホーム画面に戻る
-            self.dismiss(animated: true, completion: nil)
+            // 未入力項目エラーダイアログ（アラート）
+            let dialog = UIAlertController(title: "入力項目エラー", message: "未入力の項目があります\n全ての項目を入力してください", preferredStyle: .alert)
+            // 未入力項目エラーダイアログのボタンタイトル
+            dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            // 未入力項目エラーダイアログの表示
+            self.present(dialog, animated: true, completion: nil)
+            
         }
         // 新規の場合
         else {
@@ -243,24 +250,24 @@ class PostViewController: UIViewController {
                 try! realm.write {
                 self.realm.add(self.event, update: .modified)
                 }
+                // ホーム画面に戻る
+                self.dismiss(animated: true, completion: nil)
             }
             else {
                 print("DEBUG PostViewController 2 ：　event nil error")
-                // ----------------------------- 未入力項目存在時のエラー ----------------------------------
-                // 未入力項目エラー（アラート）
+                
+                // 未入力項目エラーダイアログ（アラート）
                 let dialog = UIAlertController(title: "入力項目エラー", message: "未入力の項目があります\n全ての項目を入力してください", preferredStyle: .alert)
-                // ボタンのタイトル
+                // 未入力項目エラーダイアログのボタンタイトル
                 dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                // 実際に表示させる
+                // 未入力項目エラーダイアログの表示
                 self.present(dialog, animated: true, completion: nil)
-                // ----------------------------- 未入力項目存在時のエラー ----------------------------------
+
             }
         print("---- 現在、保存されているイベント ---- ")
         print(realm.objects(Event.self).sorted(byKeyPath: "id", ascending: true))
         print("--------------------------------- ")
         
-        // ホーム画面に戻る
-        self.dismiss(animated: true, completion: nil)
         }
         
     }
