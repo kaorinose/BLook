@@ -35,6 +35,7 @@ class PostViewController: UIViewController {
 
         print("DEBUG PostViewController event: \(event)")
         
+        // 新規ではない場合（編集の場合）
         if event != nil {
             // 日付の型式変換（String型→ Date型(datepicker)）
             let formatter = DateFormatter()
@@ -72,9 +73,15 @@ class PostViewController: UIViewController {
 
     // 削除ボタンをタップしたときに呼ばれるメソッド
     @IBAction func deleteButton(_ sender: Any) {
-        // データベースからデータを削除する
-        try! realm.write {
-            self.realm.delete(try! Realm().objects(Event.self).filter("id=%@", event.id))
+        // 新規ではない場合（編集の場合）
+        if event != nil {
+            // データベースからデータを削除する
+            try! realm.write {
+                self.realm.delete(try! Realm().objects(Event.self).filter("id=%@", event.id))
+            }
+        }
+        // 新規の場合
+        else {
         }
         // ホーム画面に戻る
         self.dismiss(animated: true, completion: nil)
