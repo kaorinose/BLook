@@ -164,6 +164,7 @@ class PostViewController: UIViewController {
                 }
             }
             print("DEBUG PostViewController 1：データ書き込み完了")
+
             // ホーム画面に戻る
             self.dismiss(animated: true, completion: nil)
         }
@@ -245,6 +246,14 @@ class PostViewController: UIViewController {
             }
             else {
                 print("DEBUG PostViewController 2 ：　event nil error")
+                // ----------------------------- 未入力項目存在時のエラー ----------------------------------
+                // 未入力項目エラー（アラート）
+                let dialog = UIAlertController(title: "入力項目エラー", message: "未入力の項目があります\n全ての項目を入力してください", preferredStyle: .alert)
+                // ボタンのタイトル
+                dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                // 実際に表示させる
+                self.present(dialog, animated: true, completion: nil)
+                // ----------------------------- 未入力項目存在時のエラー ----------------------------------
             }
         print("---- 現在、保存されているイベント ---- ")
         print(realm.objects(Event.self).sorted(byKeyPath: "id", ascending: true))
