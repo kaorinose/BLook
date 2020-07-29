@@ -18,9 +18,9 @@ let h = UIScreen.main.bounds.size.height
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     //スケジュール内容
-    let labelDate = UILabel(frame: CGRect(x: 5, y: 580, width: 400, height: 200))
+    let labelDate = UILabel(frame: CGRect(x: 5, y: 555, width: 400, height: 200))
     //「観戦履歴」の表示
-    let labelTitle = UILabel(frame: CGRect(x: 0, y: 530, width: 180, height: 50))
+    let labelTitle = UILabel(frame: CGRect(x: 5, y: 525, width: 180, height: 40))
     //カレンダー部分
     let dateView = FSCalendar(frame: CGRect(x: 20, y: 50, width: w - 30, height: 400))
     //日付の表示
@@ -41,19 +41,19 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
         //日付表示設定
         Date.text = ""
-        Date.font = UIFont.systemFont(ofSize: 60.0)
+        Date.font = UIFont.systemFont(ofSize: 50.0)
         Date.textColor = .black
         view.addSubview(Date)
 
         //「観戦履歴」表示設定
         labelTitle.text = ""
         labelTitle.textAlignment = .center
-        labelTitle.font = UIFont.systemFont(ofSize: 20.0)
+        labelTitle.font = UIFont.systemFont(ofSize: 18.0)
         view.addSubview(labelTitle)
 
         //スケジュール内容表示設定
         labelDate.text = ""
-        labelDate.font = UIFont.systemFont(ofSize: 18.0)
+        labelDate.font = UIFont.systemFont(ofSize: 15.0)
         view.addSubview(labelDate)
 
         

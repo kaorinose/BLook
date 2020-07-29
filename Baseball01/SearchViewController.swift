@@ -32,7 +32,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         // 検索バーの初期化
         searchText.delegate = self
-        searchText.placeholder = "キーワードを入れると絞り込みができます"
+        searchText.placeholder = "検索キーワードを入力してください"
     }
     
     // 渡された文字列を含む要素を検索し、テーブルビューを再表示する
